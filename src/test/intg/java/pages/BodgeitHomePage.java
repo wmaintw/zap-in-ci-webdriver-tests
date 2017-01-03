@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 public class BodgeitHomePage {
 
-    private String url = "http://127.0.0.1:8282/bodgeit";
+    private String url = "http://security.local:8282/bodgeit";
 
     public void open(FirefoxDriver driver) {
         driver.get(url);

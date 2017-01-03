@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class LoginPage {
-    private String url = "http://127.0.0.1:8282/bodgeit/login.jsp";
+    private String url = "http://security.local:8282/bodgeit/login.jsp";
 
     public void open(FirefoxDriver driver) {
         driver.get(url);

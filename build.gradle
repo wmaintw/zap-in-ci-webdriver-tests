@@ -21,7 +21,8 @@ dependencies {
     )
     testCompile(
             'org.seleniumhq.selenium:selenium-server:3.0.1',
-            'org.seleniumhq.selenium:selenium-java:3.0.1'
+            'org.seleniumhq.selenium:selenium-java:3.0.1',
+            'junit:junit:4.12'
     )
 }
 
