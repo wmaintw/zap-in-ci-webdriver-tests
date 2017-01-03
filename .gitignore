@@ -4,3 +4,4 @@ zap ci.iws
 .gradle/
 .idea/
 out/
+build/
