@@ -1,0 +1,6 @@
+zap ci.iml
+zap ci.ipr
+zap ci.iws
+.gradle/
+.idea/
+out/
