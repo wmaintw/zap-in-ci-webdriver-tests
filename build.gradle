@@ -38,3 +38,7 @@ sourceSets {
         }
     }
 }
+
+test {
+    systemProperty "webdriver.gecko.driver", "$projectDir/drivers/geckodriver"
+}
