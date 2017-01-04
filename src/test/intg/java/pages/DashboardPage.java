@@ -5,12 +5,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class DashboardPage {
+public class DashboardPage extends BasePage {
 
     private FirefoxDriver driver;
-
-    public DashboardPage() {
-    }
 
     public DashboardPage(FirefoxDriver driver) throws InterruptedException {
         this.driver = driver;

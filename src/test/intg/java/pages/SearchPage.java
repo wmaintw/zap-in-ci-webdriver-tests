@@ -3,11 +3,11 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class SearchPage {
-    private String url = "http://security.local:8282/bodgeit/search.jsp";
+public class SearchPage extends BasePage {
+    private String path = "/search.jsp";
 
     public void open(FirefoxDriver driver) {
-        driver.get(url);
+        driver.get(buildUrl(path));
     }
 
     public SearchResultPage search(FirefoxDriver driver, String keyword) {

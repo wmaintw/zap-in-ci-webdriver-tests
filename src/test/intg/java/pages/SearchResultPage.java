@@ -5,11 +5,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class SearchResultPage {
+public class SearchResultPage extends BasePage {
     private FirefoxDriver driver;
-
-    public SearchResultPage() {
-    }
 
     public SearchResultPage(FirefoxDriver driver) {
         this.driver = driver;

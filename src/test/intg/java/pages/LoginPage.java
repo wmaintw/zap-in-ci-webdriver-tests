@@ -3,11 +3,11 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class LoginPage {
-    private String url = "http://security.local:8282/bodgeit/login.jsp";
+public class LoginPage extends BasePage {
+    private String path = "/login.jsp";
 
     public void open(FirefoxDriver driver) {
-        driver.get(url);
+        driver.get(buildUrl(path));
     }
 
     public DashboardPage login(FirefoxDriver driver, String username, String password) throws InterruptedException {

@@ -4,12 +4,12 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class BodgeitHomePage {
+public class BodgeitHomePage extends BasePage {
 
-    private String url = "http://security.local:8282/bodgeit";
+    private String path = "/";
 
     public void open(FirefoxDriver driver) {
-        driver.get(url);
+        driver.get(buildUrl(path));
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
 
