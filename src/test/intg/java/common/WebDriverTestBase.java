@@ -1,6 +1,7 @@
 package common;
 
 import com.google.gson.JsonObject;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -8,13 +9,18 @@ import org.openqa.selenium.firefox.GeckoDriverService;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import static org.apache.commons.lang3.StringUtils.isEmpty;
-
 public class WebDriverTestBase {
     protected FirefoxDriver driver;
+    private static final String WEBDRIVER_GECKO_DRIVER = "webdriver.gecko.driver";
 
     @Before
     public void setUp() throws Exception {
+
+        String driverPath = System.getProperty(WEBDRIVER_GECKO_DRIVER);
+        if (StringUtils.isEmpty(driverPath)) {
+            System.setProperty(WEBDRIVER_GECKO_DRIVER, "/Users/wma/develop/security/zap ci/drivers/geckodriver");
+        }
+
         JsonObject proxyJson = new JsonObject();
         proxyJson.addProperty("proxyType", "manual");
         proxyJson.addProperty("httpProxy", "127.0.0.1");
