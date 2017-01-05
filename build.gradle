@@ -40,6 +40,15 @@ sourceSets {
 }
 
 test {
-    systemProperty "webdriver.gecko.driver", "$projectDir/drivers/geckodriver"
+    systemProperty "webdriver.gecko.driver", "$projectDir/drivers/geckodriver-${getOS()}"
     systemProperty "baseUrl", "http://security.local:8080/bodgeit"
+}
+
+def getOS() {
+    def currentOs = org.gradle.internal.os.OperatingSystem.current()
+    if (currentOs.isMacOsX()) {
+        return "mac";
+    } else if (currentOs.isUnix()) {
+        return "linux"
+    }
 }
