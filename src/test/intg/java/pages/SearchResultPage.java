@@ -10,7 +10,7 @@ public class SearchResultPage extends BasePage {
 
     public SearchResultPage(FirefoxDriver driver) {
         this.driver = driver;
-        this.driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        this.driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     public WebElement getSearchResult() {

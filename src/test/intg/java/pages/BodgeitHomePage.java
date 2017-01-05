@@ -10,7 +10,7 @@ public class BodgeitHomePage extends BasePage {
 
     public void open(FirefoxDriver driver) {
         driver.get(buildUrl(path));
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     public String getTitle(FirefoxDriver driver) {

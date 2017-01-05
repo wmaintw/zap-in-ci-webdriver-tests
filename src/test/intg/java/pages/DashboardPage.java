@@ -11,7 +11,7 @@ public class DashboardPage extends BasePage {
 
     public DashboardPage(FirefoxDriver driver) throws InterruptedException {
         this.driver = driver;
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     public WebElement getProfileLink() {
