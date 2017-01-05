@@ -21,6 +21,11 @@ public class WebDriverTestBase {
             System.setProperty(WEBDRIVER_GECKO_DRIVER, "/Users/wma/develop/security/zap ci/drivers/geckodriver");
         }
 
+        System.out.println("*********************************************");
+        System.out.println("Geckodriver: " + System.getProperty(WEBDRIVER_GECKO_DRIVER));
+        System.out.println("Base URL: " + System.getProperty("baseUrl"));
+        System.out.println("*********************************************");
+
         JsonObject proxyJson = new JsonObject();
         proxyJson.addProperty("proxyType", "manual");
         proxyJson.addProperty("httpProxy", "127.0.0.1");
