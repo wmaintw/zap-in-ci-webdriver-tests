@@ -41,5 +41,5 @@ sourceSets {
 
 test {
     systemProperty "webdriver.gecko.driver", "$projectDir/drivers/geckodriver"
-    systemProperty "baseUrl", "http://192.168.0.104:8282/bodgeit"
+    systemProperty "baseUrl", "http://security.local:8080/bodgeit"
 }
