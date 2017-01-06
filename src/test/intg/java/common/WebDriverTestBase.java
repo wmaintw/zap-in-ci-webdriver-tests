@@ -36,14 +36,6 @@ public class WebDriverTestBase {
         }
     }
 
-    private void printDebugInfo() {
-        System.out.println("*********************************************");
-        System.out.println("Geckodriver: " + getProperty(WEBDRIVER_GECKO_DRIVER));
-        System.out.println("Base URL: " + getProperty(BASE_URL));
-        System.out.println("Enable ZAP Proxy: " + valueOf(getProperty(ZAP_PROXY_ENABLED)));
-        System.out.println("*********************************************");
-    }
-
     private GeckoDriverService getDefaultService() {
         return new GeckoDriverService.Builder().build();
     }
@@ -66,9 +58,19 @@ public class WebDriverTestBase {
         return requiredCapabilities;
     }
 
+    private void printDebugInfo() {
+        System.out.println("*********************************************");
+        System.out.println("Geckodriver: " + getProperty(WEBDRIVER_GECKO_DRIVER));
+        System.out.println("Base URL: " + getProperty(BASE_URL));
+        System.out.println("Enable ZAP Proxy: " + valueOf(getProperty(ZAP_PROXY_ENABLED)));
+        System.out.println("*********************************************");
+    }
+
     @After
     public void tearDown() throws Exception {
-        driver.close();
-        driver.quit();
+        if (driver != null) {
+            driver.close();
+            driver.quit();
+        }
     }
 }
