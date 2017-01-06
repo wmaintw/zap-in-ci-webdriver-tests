@@ -16,27 +16,43 @@ public class WebDriverTestBase {
 
     @Before
     public void setUp() throws Exception {
+        initiateWebDriverSettings();
+        printDebugInfo();
 
+        driver = new FirefoxDriver(getDefaultService(), getDesiredFirefoxCapabilities(), getCapabilitiesWithProxySettings());
+    }
+
+    private void initiateWebDriverSettings() {
         String driverPath = System.getProperty(WEBDRIVER_GECKO_DRIVER);
         if (StringUtils.isEmpty(driverPath)) {
             System.setProperty(WEBDRIVER_GECKO_DRIVER, DEFAULT_GECKODRIVER_ON_MAC);
         }
+    }
 
+    private void printDebugInfo() {
         System.out.println("*********************************************");
         System.out.println("Geckodriver: " + System.getProperty(WEBDRIVER_GECKO_DRIVER));
         System.out.println("Base URL: " + System.getProperty("baseUrl"));
         System.out.println("*********************************************");
+    }
 
+    private GeckoDriverService getDefaultService() {
+        return new GeckoDriverService.Builder().build();
+    }
+
+    private DesiredCapabilities getDesiredFirefoxCapabilities() {
+        return DesiredCapabilities.firefox();
+    }
+
+    private DesiredCapabilities getCapabilitiesWithProxySettings() {
         JsonObject proxyJson = new JsonObject();
         proxyJson.addProperty("proxyType", "manual");
         proxyJson.addProperty("httpProxy", "127.0.0.1");
         proxyJson.addProperty("httpProxyPort", 7070);
 
-        DesiredCapabilities desiredCapabilities = DesiredCapabilities.firefox();
         DesiredCapabilities requiredCapabilities = new DesiredCapabilities();
         requiredCapabilities.setCapability(CapabilityType.PROXY, proxyJson);
-        GeckoDriverService service = new GeckoDriverService.Builder().build();
-        driver = new FirefoxDriver(service, desiredCapabilities, requiredCapabilities);
+        return requiredCapabilities;
     }
 
     @After
