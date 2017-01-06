@@ -41,7 +41,11 @@ sourceSets {
 
 test {
     systemProperty "webdriver.gecko.driver", "$projectDir/drivers/geckodriver-${getOS()}"
-    systemProperty "baseUrl", "http://security.local:8080/bodgeit"
+    systemProperty "baseUrl", "http://security.local:8282/bodgeit"
+
+    systemProperty "zapProxyEnabled", "false"
+    systemProperty "zapProxyHost", "127.0.0.1"
+    systemProperty "zapProxyPort", "7070"
 }
 
 def getOS() {
